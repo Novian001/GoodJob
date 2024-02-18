@@ -6,635 +6,794 @@
     <title>GoodJob</title>
     <link rel="stylesheet" href="public/css/styles.css">
     <script src="https://kit.fontawesome.com/6745b7c50c.js" crossorigin="anonymous"></script>
+
+    <!-- Alpine Js -->
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
-<body class="bg-white">
-    <header class="flex items-center py-[45px] px-[133px] sticky top-0 w-full bg-white z-10">
-        <div class="logo">
-            <!-- Add your logo here -->
-            <img src="public/assets/logo.png" alt="Your Logo">
-        </div>
-        <nav class="grow">
-            <ul class="flex justify-center">
-                <li class="mx-2 hover:text-tertiary hover:underline hover:underline-offset-8"><a href="#">Home</a></li>
-                <li class="mx-2 hover:text-tertiary hover:underline hover:underline-offset-8"><a href="#">Find Jobs</a></li>
-                <li class="mx-2 hover:text-tertiary hover:underline hover:underline-offset-8"><a href="#">Recruiters</a></li>
-                <li class="mx-2 hover:text-tertiary hover:underline hover:underline-offset-8"><a href="#">Candidates</a></li>
-                <li class="mx-2 hover:text-tertiary hover:underline hover:underline-offset-8"><a href="#">Companies</a></li>
-                <li class="mx-2 hover:text-tertiary hover:underline hover:underline-offset-8"><a href="#">Blog</a></li>
-            </ul>
-        </nav>
-        <div>
-            <a class="font-semibold" href="#">Register</a>
-            <button class="bg-tertiary text-secondary px-4 py-2 rounded-md mx-2">
-                SignUp
-            </button>
-        </div>
-    </header>
-    <main class="py-10 px-[133px]">
-        <article class="flex justify-around pb-20">
-            <section class="flex grow mr-10 gap-3 relative">
-                <img class="my-24" src="public/assets/Rectangle 3.png" alt="Your Image">
-                <div class="absolute top-56 left-14">
-                    <img class="my-40 z-10 w-80" src="public/assets/Frame 17.png" alt="Your Image">
+<body class="bg-white m-0 p-0">
+    <header class="py-9 px-4 z-50 lg:sticky lg:top-0 bg-white lg:px-[100px]">
+        <nav class="" x-data="{navOpen : false}">
+            <div class="container mx-auto">
+                <div class="flex justify-between items-center">
+                    <img src="public/assets/Svg/logo.svg" alt="Your Logo" class="order-1 sm:order-2">
+                    <img @click="navOpen = !navOpen" src="public/assets/Svg/toogle.svg" alt="" class="lg:hidden order-2 sm:order-1">
+                    <div class="order-2 hidden lg:block">
+                        <ul class="flex gap-16">
+                            <li class="mx-2 hover:text-tertiary hover:underline hover:underline-offset-8"><a href="#">Home</a></li>
+                            <li class="mx-2 hover:text-tertiary hover:underline hover:underline-offset-8 opacity-50"><a href="#">Recruiters</a></li>
+                            <li class="mx-2 hover:text-tertiary hover:underline hover:underline-offset-8 opacity-50"><a href="#">Candidates</a></li>
+                            <li class="mx-2 hover:text-tertiary hover:underline hover:underline-offset-8 opacity-50"><a href="#">Companies</a></li>
+                            <li class="mx-2 hover:text-tertiary hover:underline hover:underline-offset-8 opacity-50"><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="order-3 hidden sm:block">
+                        <button class="grow bg-slate-50 px-8 py-4 font-normal lg:font-semibold lg:text-base text-primary rounded-full text-sm focus:outline-none focus:hover:bg-slate-100">Register</button>
+                        <button class="grow bg-tertiary px-8 py-4 font-normal lg:font-semibold lg:text-base text-white rounded-full text-sm">SignUp</button>
+                    </div>
                 </div>
-                <div class="flex flex-col gap-3">
-                    <img src="public/assets/Rectangle 1.png" alt="Your Image">
-                    <img src="public/assets/Rectangle 2.png" alt="Your Image">
-                </div>
-            </section>
-            <section class="grow flex flex-col gap-5 justify-center">
-                <div class="relative flex flex-col gap-5">
-                    <h1 class="text-5xl font-bold w-96 tracking-wide">Find the <span class="text-tertiary italic">perfect</span> job for you</h1>
-                    <img class="absolute top-9 -z-10 left-48 w-44 h-4" src="public/assets/Rectangle 5.png" alt="">
-                    <p class="text-slate-400 w-96 font-bold tracking-wide text-sm">Each month, more than 3 million job seekers turn to website in their for work, making over 140.000 applications every single day</p>
-                </div>
-                <div class="bg-white p-4 rounded-md drop-shadow-lg mt-5 ">
-                    <div class="mt-1 flex rounded-md">
-                        <input type="text" id="search" name="search" class="flex-1 block w-full rounded-md sm:text-sm">
-                        <button type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-tertiary hover:bg-tertiary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-tertiary">
-                            <i class="fa-solid fa-magnifying-glass mx-1"></i>Search
+            </div>
+
+            <div x-data="{open : false}" 
+                x-show="navOpen" 
+                class="fixed bottom-0 right-0 left-0 p-4 bg-slate-50 lg:hidden z-50"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 scale-90"
+                x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 scale-100"
+                x-transition:leave-end="opacity-0 scale-90"
+            >
+                <ul  class="flex justify-between md:justify-around">
+                    <li>
+                        <button class="flex justify-center flex-col items-center gap-1 text-tertiary">
+                            <ion-icon name="home-outline" class="text-2xl"></ion-icon>
+                            <span class="text-sm font-medium">Home</span>
                         </button>
-                    </div>
-                </div>
-                <div class="flex gap-2">
-                    <p class="font-bold">Popular searches:</p>
-                    <p class="text-gray-400"><span class="underline">Data Entry,</span> <span class="underline">Graphic Designer,</span> <span class="underline">UI&UX,</span> <span class="underline">Web Developer,</span> <span class="underline">Finance</span></p>
-                </div>
-            </section>
-        </article>
-        <article class="pt-10 pb-20">
-            <h1 class="text-2xl font-medium">Browse by category</h1>
-            <p class="text-gray-400">Find the job that’s perfect for you, about 900+ new jobs everyday</p>
-            <div class="flex-col justify-between gap-1 my-5">
-                <div class="flex justify-end py-5 mx-2">
-                    <a href="#" class="text-right font-semibold">All Categories <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="flex justify-center flex-wrap gap-8">
-                    <div class="w-1/4 h-[120px] gap-2 p-4 bg-white rounded-md drop-shadow-sm flex items-center justify-around border"  style="width: calc(25% - 133px / 4 - 0px)">
-                        <img class="ml-10 mr-2" src="public/assets/icon/DE.png" alt="">
-                        <div class="flex-grow">
-                            <p class="font-semibold text-lg">Data Entry</p>
-                            <p class="text-gray-400">10 open positions</p>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-[120px] gap-2 p-4 bg-white rounded-md drop-shadow-sm flex items-center justify-around border"  style="width: calc(25% - 133px / 4 - 0px)">
-                        <img class="ml-10 mr-2" src="public/assets/icon/WP.png" alt="">
-                        <div class="flex-grow">
-                            <p class="font-semibold text-lg">Wordpress</p>
-                            <p class="text-gray-400">10 open positions</p>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-[120px] gap-2 p-4 bg-white rounded-md drop-shadow-sm flex items-center justify-around border"  style="width: calc(25% - 133px / 4 - 0px)">
-                        <img class="ml-10 mr-2" src="public/assets/icon/Design.png" alt="">
-                        <div class="flex-grow">
-                            <p class="font-semibold text-lg">Graphic Designer</p>
-                            <p class="text-gray-400">10 open positions</p>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-[120px] gap-2 p-4 bg-white rounded-md drop-shadow-sm flex items-center justify-around border"  style="width: calc(25% - 133px / 4 - 0px)">
-                        <img class="ml-10 mr-2" src="public/assets/icon/DS.png" alt="">
-                        <div class="flex-grow">
-                            <p class="font-semibold text-lg">Data Science</p>
-                            <p class="text-gray-400">10 open positions</p>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-[120px] gap-2 p-4 bg-white rounded-md drop-shadow-sm flex items-center justify-around border"  style="width: calc(25% - 133px / 4 - 0px)">
-                        <img class="ml-10 mr-2" src="public/assets/icon/FE.png" alt="">
-                        <div class="flex-grow">
-                            <p class="font-semibold text-lg">Frontend Developer</p>
-                            <p class="text-gray-400">10 open positions</p>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-[120px] gap-2 p-4 bg-white rounded-md drop-shadow-sm flex items-center justify-around border"  style="width: calc(25% - 133px / 4 - 0px)">
-                        <img class="ml-10 mr-2" src="public/assets/icon/Finance.png" alt="">
-                        <div class="flex-grow">
-                            <p class="font-semibold text-lg">Finance</p>
-                            <p class="text-gray-400">10 open positions</p>
-                        </div>
-                    </div>
+                    </li>
+                    <li>
+                        <button class="flex justify-center flex-col items-center gap-1 text-gray-600 opacity-50">
+                            <ion-icon name="earth-outline" class="text-2xl"></ion-icon>
+                            <span class="text-sm font-medium">Recruiters</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="flex justify-center flex-col items-center gap-1 text-gray-600 opacity-50">
+                            <ion-icon name="briefcase-outline" class="text-2xl"></ion-icon>
+                            <span class="text-sm font-medium">Candidates</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="flex justify-center flex-col items-center gap-1 text-gray-600 opacity-50">
+                            <ion-icon name="storefront-outline" class="text-2xl"></ion-icon>
+                            <span class="text-sm font-medium">Companies</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button @click="open = !open" class="flex justify-center flex-col items-center gap-1 text-gray-600 opacity-50">
+                            <ion-icon name="layers-outline" class="text-2xl"></ion-icon>
+                            <span class="text-sm font-medium">Blog</span>
+                        </button>
+                    </li>
+                </ul>
+                <div x-show="open" 
+                    class="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 w-3/4"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 scale-90"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start="opacity-100 scale-100"
+                    x-transition:leave-end="opacity-0 scale-90"
+                >
+                    <button class="grow bg-slate-50 px-8 py-4 font-semibold text-primary rounded-full text-sm">Register</button>
+                    <button class="grow bg-tertiary px-8 py-4 font-semibold text-white rounded-full text-sm">SignUp</button>
                 </div>
             </div>
-        </article>
-        <article class="pt-10 pb-20">
-            <h1 class="text-2xl font-medium">Jobs of the day</h1>
-            <p class="text-gray-400">Search and connect with the right candidates faster</p>
-            <div class="flex gap-4 mt-20 p-2 overflow-x-hidden">
-                <div class="flex items-center justify-center cursor-pointer w-44 h-10 bg-white rounded-lg border-[1px] border-gray-300 py-2.5 px-3">
-                    <div class="flex items-center justify-center text-start gap-2 mx-3">
-                        <img class="w-5 h-5" src="public/assets/icon/Web.png" alt="web developer">
-                        <p class="text-sm text-nowrap">Web Developer</p>
-                    </div>
-                </div>        
-                <div class="flex items-center justify-center cursor-pointer w-44 h-10 bg-white rounded-lg border-[1px] border-gray-300 py-2.5 px-3">
-                    <div class="flex items-center justify-center text-start gap-2 mx-3">
-                        <img class="w-5 h-5" src="public/assets/icon/DE.png" alt="data entry">
-                        <p class="text-sm text-nowrap">Data Entry</p>
-                    </div>
-                </div>        
-                <div class="flex items-center justify-center cursor-pointer w-44 h-10 bg-white rounded-lg border-[1px] border-gray-300 py-2.5 px-3">
-                    <div class="flex items-center justify-center text-start gap-2 mx-3">
-                        <img class="w-7 h-5" src="public/assets/icon/VA.png" alt="virtual assistance">
-                        <p class="text-sm text-nowrap">Virtual Assistance</p>
-                    </div>
-                </div>        
-                <div class="flex items-center justify-center cursor-pointer w-44 h-10 bg-white rounded-lg border-[1px] border-gray-300 py-2.5 px-3">
-                    <div class="flex items-center justify-center text-start gap-2 mx-3">
-                        <img class="w-6 h-6" src="public/assets/icon/XD.png" alt="UI&UX">
-                        <p class="text-sm text-nowrap">UI&UX</p>
-                    </div>
-                </div>        
-                <div class="flex items-center justify-center cursor-pointer w-44 h-10 bg-white rounded-lg border-[1px] border-gray-300 py-2.5 px-3">
-                    <div class="flex items-center justify-center text-start gap-2 mx-3">
-                        <img class="w-7 h-5" src="public/assets/icon/Design.png" alt="draphic designer">
-                        <p class="text-sm text-nowrap">Graphic Designer</p>
-                    </div>
-                </div>     
-                <div class="flex items-center justify-center cursor-pointer w-44 h-10 bg-white rounded-lg border-[1px] border-gray-300 py-2.5 px-3">
-                    <div class="flex items-center justify-center text-start gap-2 mx-3">
-                        <img class="w-5 h-5" src="public/assets/icon/Finance.png" alt="finance">
-                        <p class="text-sm text-nowrap">Finance</p>
-                    </div>
-                </div>        
-                <div class="flex items-center justify-center cursor-pointer w-44 h-10 bg-white rounded-lg border-[1px] border-gray-300 py-2.5 px-3">
-                    <div class="flex items-center justify-center text-start gap-2 mx-3">
-                        <img class="w-5 h-5" src="public/assets/icon/DS.png" alt="data science">
-                        <p class="text-sm text-nowrap">Data Science</p>
-                    </div>
-                </div>        
-            </div>
-            <div class="flex flex-col items-center gap-10">
-                <div class="flex flex-wrap justify-between gap-4 mt-20">
-                    <div class="w-1/4 h-300 bg-slate-100 rounded-xl shadow-md px-4 py-6 flex-col flex gap-4" style="width: calc(25% - 133px / 8 - 0px);">
-                        <div class="flex justify-between">
-                            <div class="flex gap-2">
-                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Grab.png" alt="Grab">
-                                <div>
-                                    <h1 class="text-xl font-medium line-clamp-1">Grab Indonesia</h1>
-                                    <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+        </nav>
+    </header>
+    <main class="lg:px-[100px]">
+        <article>
+            <!-- hero section -->
+            <section>
+                <div class="container mx-auto p-4">
+                    <div class="grid grid-cols-12">
+                        <div class="col-span-12 mt-5 lg:col-span-6 order-2 lg:order-3 lg:mt-0">
+                            <div class="flex flex-col gap-4 lg:translate-y-1/3">
+                                <div class="relative">
+                                    <h1 class="text-5xl font-bold md:w-2/3 lg:text-6xl lg:w-3/4">Find the <span class="text-tertiary italic">perfect</span> job for you</h1>
+                                    <div class="h-3 absolute opacity-50 bg-tertiary w-3/5 top-1/2 translate-y-2/3 left-0 md:left-1/3 md:-translate-x-1/3 md:w-1/5 lg:w-1/4 lg:-translate-x-1/2 lg:left-1/2 lg:top-11"></div>
                                 </div>
-                            </div>
-                            <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-2xl font-bold line-clamp-1">Quality Assurance</h1>
-                            <div class="flex gap-2">
-                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                <h2 class="text-gray-400 text-sm">Posted 3 days ago</h2>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                        <div class="flex gap-2">
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years<sup>+</sup></h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Jira / Trello</h4>
-                        </div>
-                        <div class="flex justify-between items-center mt-2">
-                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 7 million/<span class="text-sm font-normal">month</span></h2>
-                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                Apply Now
-                            </button>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-300 bg-slate-100 rounded-xl shadow-md px-4 py-6 flex-col flex gap-4" style="width: calc(25% - 133px / 8 - 0px);">
-                        <div class="flex justify-between">
-                            <div class="flex gap-2">
-                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Grab.png" alt="Grab">
-                                <div>
-                                    <h1 class="text-xl font-medium line-clamp-1">Grab Indonesia</h1>
-                                    <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
-                                </div>
-                            </div>
-                            <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-2xl font-bold line-clamp-1">Frontend Developer</h1>
-                            <div class="flex gap-2">
-                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                <h2 class="text-gray-400 text-sm">Posted 3 days ago</h2>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                        <div class="flex gap-2">
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">2 years <sup>+</sup></h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">React</h4>
-                        </div>
-                        <div class="flex justify-between items-center mt-2">
-                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 7 million/<span class="text-sm font-normal">month</span></h2>
-                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                Apply Now
-                            </button>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-300 bg-slate-100 rounded-xl shadow-md px-4 py-6 flex-col flex gap-4" style="width: calc(25% - 133px / 8 - 0px);">
-                        <div class="flex justify-between">
-                            <div class="flex gap-2">
-                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Gramed.png" alt="Grab">
-                                <div>
-                                    <h1 class="text-xl font-medium line-clamp-1">Gramedia</h1>
-                                    <p class="text-gray-400 text-sm">Yogyakarta, Indonesia</p>
-                                </div>
-                            </div>
-                            <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-2xl font-bold line-clamp-1">Frontend Developer</h1>
-                            <div class="flex gap-2">
-                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                <h2 class="text-gray-400 text-sm">Posted 1 days ago</h2>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                        <div class="flex gap-2">
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">2 years <sup>+</sup></h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Vue 3</h4>
-                        </div>
-                        <div class="flex justify-between items-center mt-2">
-                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 5 million/<span class="text-sm font-normal">month</span></h2>
-                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                Apply Now
-                            </button>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-300 bg-slate-100 rounded-xl shadow-md px-4 py-6 flex-col flex gap-4" style="width: calc(25% - 133px / 8 - 0px);">
-                        <div class="flex justify-between">
-                            <div class="flex gap-2">
-                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/BI.png" alt="Grab">
-                                <div>
-                                    <h1 class="text-xl font-medium line-clamp-1">Bank Indonesia</h1>
-                                    <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
-                                </div>
-                            </div>
-                            <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-2xl font-bold line-clamp-1">Finance</h1>
-                            <div class="flex gap-2">
-                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                        <div class="flex gap-2">
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">2 years <sup>+</sup></h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">MS. Office</h4>
-                        </div>
-                        <div class="flex justify-between items-center mt-2">
-                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
-                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                Apply Now
-                            </button>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-300 bg-slate-100 rounded-xl shadow-md px-4 py-6 flex-col flex gap-4" style="width: calc(25% - 133px / 8 - 0px);">
-                        <div class="flex justify-between">
-                            <div class="flex gap-2">
-                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/PT ANANTLA VENTURES INDONESIA.png" alt="Grab">
-                                <div>
-                                    <h1 class="text-xl font-medium line-clamp-1">PT ANANTLA VENTURES INDONESIA</h1>
-                                    <p class="text-gray-400 text-sm">Bandung, Indonesia</p>
-                                </div>
-                            </div>
-                            <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-2xl font-bold line-clamp-1">Senior Mobile Developer (Kotlin & Swift)</h1>
-                            <div class="flex gap-2">
-                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                        <div class="flex gap-2">
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
-                        </div>
-                        <div class="flex justify-between items-center mt-2">
-                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
-                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                Apply Now
-                            </button>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-300 bg-slate-100 rounded-xl shadow-md px-4 py-6 flex-col flex gap-4" style="width: calc(25% - 133px / 8 - 0px);">
-                        <div class="flex justify-between">
-                            <div class="flex gap-2">
-                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Telkom.png" alt="Telkom">
-                                <div>
-                                    <h1 class="text-xl font-medium line-clamp-1">PT Telkom</h1>
-                                    <p class="text-gray-400 text-sm">Surabaya, Indonesia</p>
-                                </div>
-                            </div>
-                            <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-2xl font-bold line-clamp-1">Senior Mobile Developer (Kotlin & Swift)</h1>
-                            <div class="flex gap-2">
-                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                        <div class="flex gap-2">
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
-                        </div>
-                        <div class="flex justify-between items-center mt-2">
-                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 12 million/<span class="text-sm font-normal">month</span></h2>
-                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                Apply Now
-                            </button>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-300 bg-slate-100 rounded-xl shadow-md px-4 py-6 flex-col flex gap-4" style="width: calc(25% - 133px / 8 - 0px);">
-                        <div class="flex justify-between">
-                            <div class="flex gap-2">
-                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Kirimin.jpeg" alt="Kirimin">
-                                <div>
-                                    <h1 class="text-xl font-medium line-clamp-1">KiriminAja</h1>
-                                    <p class="text-gray-400 text-sm">Yogyakarta, Indonesia</p>
-                                </div>
-                            </div>
-                            <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-2xl font-bold line-clamp-1">Mobile Developer</h1>
-                            <div class="flex gap-2">
-                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                        <div class="flex gap-2">
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years <sup>+</sup></h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
-                        </div>
-                        <div class="flex justify-between items-center mt-2">
-                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
-                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                Apply Now
-                            </button>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-300 bg-slate-100 rounded-xl shadow-md px-4 py-6 flex-col flex gap-4" style="width: calc(25% - 133px / 8 - 0px);">
-                        <div class="flex justify-between">
-                            <div class="flex gap-2">
-                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Medical.png" alt="Medic">
-                                <div>
-                                    <h1 class="text-xl font-medium line-clamp-1">ACE Medical</h1>
-                                    <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
-                                </div>
-                            </div>
-                            <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-2xl font-bold line-clamp-1">Dentist Klinik Safira Medical Care Karawang</h1>
-                            <div class="flex gap-2">
-                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                        <div class="flex gap-2">
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
-                        </div>
-                        <div class="flex justify-between items-center mt-2">
-                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 7 million/<span class="text-sm font-normal">month</span></h2>
-                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                Apply Now
-                            </button>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-300 bg-slate-100 rounded-xl shadow-md px-4 py-6 flex-col flex gap-4" style="width: calc(25% - 133px / 8 - 0px);">
-                        <div class="flex justify-between">
-                            <div class="flex gap-2">
-                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Gojek.png" alt="Gojek">
-                                <div>
-                                    <h1 class="text-xl font-medium line-clamp-1">Gojek</h1>
-                                    <p class="text-gray-400 text-sm">Malang, Indonesia</p>
-                                </div>
-                            </div>
-                            <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-2xl font-bold line-clamp-1">Senior Mobile Developer (Kotlin & Swift)</h1>
-                            <div class="flex gap-2">
-                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                        <div class="flex gap-2">
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
-                        </div>
-                        <div class="flex justify-between items-center mt-2">
-                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
-                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                Apply Now
-                            </button>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-300 bg-slate-100 rounded-xl shadow-md px-4 py-6 flex-col flex gap-4" style="width: calc(25% - 133px / 8 - 0px);">
-                        <div class="flex justify-between">
-                            <div class="flex gap-2">
-                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/PT Pemindo Mitra Sinergi.png" alt="Pemindo">
-                                <div>
-                                    <h1 class="text-xl font-medium line-clamp-1">PT Pemindo Mitra Sinergi</h1>
-                                    <p class="text-gray-400 text-sm">Bandung, Indonesia</p>
-                                </div>
-                            </div>
-                            <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-2xl font-bold line-clamp-1">Sales Marketing</h1>
-                            <div class="flex gap-2">
-                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                        <div class="flex gap-2">
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years <sup>+</sup></h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Diploma (D1 - D4)</h4>
-                        </div>
-                        <div class="flex justify-between items-center mt-2">
-                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 4 million/<span class="text-sm font-normal">month</span></h2>
-                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                Apply Now
-                            </button>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-300 bg-slate-100 rounded-xl shadow-md px-4 py-6 flex-col flex gap-4" style="width: calc(25% - 133px / 8 - 0px);">
-                        <div class="flex justify-between">
-                            <div class="flex gap-2">
-                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Pertamina.png" alt="Pertamina">
-                                <div>
-                                    <h1 class="text-xl font-medium line-clamp-1">Pertamina</h1>
-                                    <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
-                                </div>
-                            </div>
-                            <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-2xl font-bold line-clamp-1">Sales Marketing</h1>
-                            <div class="flex gap-2">
-                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                        <div class="flex gap-2">
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years <sup>+</sup></h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Diploma (D1 - D4)</h4>
-                        </div>
-                        <div class="flex justify-between items-center mt-2">
-                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 5 million/<span class="text-sm font-normal">month</span></h2>
-                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                Apply Now
-                            </button>
-                        </div>
-                    </div>
-                    <div class="w-1/4 h-300 bg-slate-100 rounded-xl shadow-md flex-col flex gap-4 overflow-hidden" style="width: calc(25% - 133px / 8 - 0px);">
-                        <div class="w-[300px] h-[365px] bg-gradient-to-l from-white rounded-xl gap-4 absolute"></div>
-                        <div class="flex-col flex px-4 py-6 gap-4">
-                            <div class="flex justify-between">
-                                <div class="flex gap-2">
-                                    <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Gramed.png" alt="Gramedia">
-                                    <div>
-                                        <h1 class="text-xl font-medium line-clamp-1">Gramedia</h1>
-                                        <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                <p class="font-normal text-sm text-gray-400 md:w-2/3 lg:w-1/2 lg:text-base">Each month, more than 3 million job seekers turn to website in their for work, making over 140.000 applications every single day</p>
+                                <div class="bg-white p-2 rounded-lg drop-shadow-md">
+                                    <div class="flex flex-nowrap gap-2">
+                                        <div class="bg-white relative flex items-center px-2">
+                                            <ion-icon name="briefcase-outline" class="text-gray-400"></ion-icon>
+                                            <input type="text" placeholder="Industry" class="flex-1 w-1/4 p-2 border-none focus:outline-none rounded-md">
+                                            <ion-icon name="caret-down-outline" class="text-gray-400"></ion-icon>
+                                            <div class="bg-gray-300 h-5 w-0.5 left-full"></div>
+                                        </div>
+                                        <div class="bg-white relative flex items-center px-2">
+                                            <ion-icon name="location-outline" class="text-gray-400"></ion-icon>
+                                            <input type="text" placeholder="Location" class="flex-1 w-1/4 p-2 border-none focus:outline-none rounded-md">
+                                            <ion-icon name="caret-down-outline" class="text-gray-400"></ion-icon>
+                                            <div class="bg-gray-300 h-5 w-0.5 left-full"></div>
+                                        </div>
+                                        <div class="bg-white hidden md:flex relative items-center px-2">
+                                            <ion-icon name="dice-outline" class="text-gray-400"></ion-icon>
+                                            <input type="text" placeholder="Keyword" class="flex-1 w-1/4 p-2 border-none focus:outline-none rounded-md">
+                                            <ion-icon name="caret-down-outline" class="text-gray-400"></ion-icon>
+                                            <div class="bg-gray-300 h-5 w-0.5 left-full"></div>
+                                        </div>
+                                        <button class="w-1/4 bg-tertiary text-white p-2 rounded-md">Search</button>
                                     </div>
                                 </div>
-                                <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                            </div>
-                            <div>
-                                <h1 class="text-2xl font-bold line-clamp-1">Finance</h1>
                                 <div class="flex gap-2">
-                                    <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                    <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                    <p class="font-medium">Popular searches</p>
+                                    <p>:</p>
+                                    <p class="text-gray-400 font-normal"><span class="underline">Data Entry,</span> <span class="underline">Graphic Designer,</span> <span class="underline">UI&UX,</span> <span class="underline">Web Developer,</span> <span class="underline">Finance</span></p>
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="hidden lg:block lg:col-span-1 lg:order-2"></div>
+                        <div class="col-span-12 lg:col-span-5 order-1">
+                            <div class="flex justify-center items-center">
+                                <div class="relative">
+                                    <img src="public/assets/hero.png" alt="">
+                                    <div class="bg-customWhite flex flex-col items-center gap-2 p-3 rounded-3xl absolute top-2/3 left-1/2 -translate-x-1/2 w-4/5 md:w-3/5">
+                                        <h3 class="text-xl font-bold">5k+ candidates get job</h3>
+                                        <div class="flex items-center -space-x-4 relative">
+                                            <a href="#">
+                                                <img src="public/assets/People/Ellipse 2.png" alt="" class="w-11">
+                                            </a>
+                                            <a href="#">
+                                                <img src="public/assets/People/Ellipse 3.png" alt="" class="w-11">
+                                            </a>
+                                            <a href="#">
+                                                <img src="public/assets/People/Ellipse 4.png" alt="" class="w-11">
+                                            </a>
+                                            <a href="#">
+                                                <img src="public/assets/People/Ellipse 5.png" alt="" class="w-11">
+                                            </a>
+                                            <a href="#">
+                                                <img src="public/assets/People/Ellipse 6.png" alt="" class="w-11">
+                                            </a>
+                                            <a href="#">
+                                                <img src="public/assets/People/Ellipse 7.png" alt="" class="w-11">
+                                            </a>
+                                            <button class="bg-tertiary rounded-full w-11 h-11 text-6xl font-extrabold flex items-center justify-center">
+                                                <ion-icon name="add-outline" class="text-white"></ion-icon>
+                                            </button>
+                                        </div>
+                                        
+                                    </div>
                                 </div>
                             </div>
-                            <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                            <div class="flex gap-2">
-                                <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">2 years <sup>+</sup></h4>
-                                <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                                <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Diploma (D1 - D4)</h4>
-                            </div>
-                            <div class="flex justify-between items-center mt-2">
-                                <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
-                                <button class="bg-tertiary text-white rounded-md px-4 py-2 cursor-not-allowed">
-                                    Apply Now
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="relative">
-                    <button class="bg-tertiary text-white py-2 px-2 rounded-full w-40">View All Jobs</button>
-                    <i class="fa-solid fa-arrow-right ml-1 bg-white py-[10.5px] px-3 rounded-full absolute top-0 -right-1.5 border-tertiary border-2" style="color: #99cb3c;"></i>
-                </div>
-            </div>
-        </article>
-        <article class="pt-10 pb-20">
-            <section class="flex pt-10 pb-20">
-                <div class="flex flex-col gap-20">
-                    <h1 class="text-5xl font-bold w-[800px] tracking-wide">Unlock Exciting Opportunities as a Talent Magnet! 🚀</h1>
-                    <div class="flex flex-col gap-8">
-                        <p class="w-[615px] leading-relaxed">Ever considered the dynamic role of a recruiter? Join the league of skilled professionals who shape careers and organizations. Discover the art of connecting top talent with incredible job opportunities.</p>
-                        <p class="w-[615px] leading-relaxed">Embark on a rewarding journey where your skills meet endless possibilities. Become a recruiter and play a vital role in shaping the future workforce.</p>
-                        <p class="w-[615px] leading-relaxed">Ready to explore a world of talent acquisition? Let's dive in together!</p>
-                        <div class="flex gap-4">
-                            <div class="relative">
-                                <button class="bg-tertiary text-white py-2 px-2 rounded-full w-40">Get Started</button>
-                                <i class="fa-solid fa-arrow-right ml-1 bg-white py-[10.5px] px-3 rounded-full absolute top-0 -right-1.5 border-tertiary border-2" style="color: #99cb3c;"></i>
-                            </div>
-                            <button class="border-2 border-tertiary py-2 p-4 rounded-full">Upload Poster</button>
                         </div>
                     </div>
                 </div>
-                <img class="w-[400px] h-[400px] mt-10 -left-5" src="public/assets/works.gif" alt="this slowpoke moves" alt="404 image"/>
             </section>
-            <section class="pt-10 pb-20 flex flex-col justify-center">
-                <div class="flex-col flex gap-5 items-center text-center">
-                    <h1 class="text-4xl font-bold">What do they say about us?</h1>
-                    <p class="text-gray-400 w-[600px]">GoodJob provides a fantastic platform for job seekers to post their openings, find jobs, and achieve success</p>
+
+            <!-- category section -->
+            <section>
+                <div class="container mx-auto p-4">
+                    <div class="grid grid-cols-12">
+                        <div class="col-span-12">
+                            <h1 class="text-3xl font-medium">Browse by category</h1>
+                        <p class="text-gray-400 text-sm w-3/4 lg:text-base">Find the job that’s perfect for you, about 900+ new jobs everyday</p>
+                        </div>
+                        <div class="col-span-12">
+                            <div class="flex flex-col gap-2">
+                                <a href="#" class="flex items-center justify-end">
+                                    <p class="text-base">All Categories</p>
+                                    <ion-icon name="chevron-forward-outline" class="mt-1"></ion-icon>
+                                </a>
+                                <div>
+                                    <div class="flex justify-center flex-wrap gap-1 lg:gap-4">
+                                        <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md">
+                                            <img class="lg:mx-4" src="public/assets/icon/DE.png" alt="">
+                                            <div class="text-center lg:flex-grow">
+                                                <p class="text-base font-normal lg:font-medium lg:text-lg">Data Entry</p>
+                                                <p class="text-gray-400 text-xs font-normal">10 open positions</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md">
+                                            <img class="lg:mx-4" src="public/assets/icon/WP.png" alt="">
+                                            <div class="text-center lg:flex-grow">
+                                                <p class="text-base font-normal lg:font-medium lg:text-lg">Wordpress</p>
+                                                <p class="text-gray-400 text-xs font-normal">10 open positions</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md">
+                                            <img class="lg:mx-4" src="public/assets/icon/Design.png" alt="">
+                                            <div class="text-center lg:flex-grow">
+                                                <p class="text-base font-normal lg:font-medium lg:text-lg">Graphic Designer</p>
+                                                <p class="text-gray-400 text-xs font-normal">10 open positions</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md">
+                                            <img class="lg:mx-4" src="public/assets/icon/DS.png" alt="">
+                                            <div class="text-center lg:flex-grow">
+                                                <p class="text-base font-normal lg:font-medium lg:text-lg">Data Science</p>
+                                                <p class="text-gray-400 text-xs font-normal">10 open positions</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md">
+                                            <img class="lg:mx-4" src="public/assets/icon/FE.png" alt="">
+                                            <div class="text-center lg:flex-grow">
+                                                <p class="text-base font-normal lg:font-medium lg:text-lg">Frontend Developer</p>
+                                                <p class="text-gray-400 text-xs font-normal">10 open positions</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md">
+                                            <img class="lg:mx-4" src="public/assets/icon/Finance.png" alt="">
+                                            <div class="text-center lg:flex-grow">
+                                                <p class="text-base font-normal lg:font-medium lg:text-lg">Finance</p>
+                                                <p class="text-gray-400 text-xs font-normal">10 open positions</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md">
+                                            <img class="lg:mx-4" src="public/assets/icon/XD.png" alt="">
+                                            <div class="text-center lg:flex-grow">
+                                                <p class="text-base font-normal lg:font-medium lg:text-lg">UI&UX</p>
+                                                <p class="text-gray-400 text-xs font-normal">10 open positions</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex justify-around gap-4 mt-20">
-                    <div class="w-1/3 h-300 py-10 px-8 bg-white rounded-xl shadow-md">
-                        <div class="flex justify-between items-center">
-                            <img src="public/assets/Photo-1.png" alt="Jane Doe">
-                            <div>
-                                <img src="public/assets/Frame.png" width="20" height="20" alt="Jane Doe">
+            </section>
+
+            <!-- job section -->
+            <section class="pb-10">
+                <div class="container mx-auto p-4">
+                    <div class="grid grid-cols-12">
+                        <div class="col-span-12 mb-5">
+                            <h1 class="text-3xl font-medium">Jobs of the day</h1>
+                            <p class="text-gray-400 text-sm w-3/4 lg:text-base">Search and connect with the right candidates faster</p>
+                        </div>
+                        <div class="col-span-12">
+                            <div class="flex flex-col gap-2 overflow-x-hidden">
+                                <ul class="flex gap-4 p-2 overflow-x-hidden tabs-box">
+                                    <li class="flex items-center justify-center cursor-pointer w-44 h-10 bg-white rounded-lg border-[1px] border-gray-300 py-2.5 px-3">
+                                        <div class="flex items-center justify-center text-start gap-2 mx-3">
+                                            <img class="w-5 h-5" src="public/assets/icon/Web.png" alt="web developer">
+                                            <p class="text-sm text-nowrap">Web Developer</p>
+                                        </div>
+                                    </li>        
+                                    <li class="flex items-center justify-center cursor-pointer w-44 h-10 bg-white rounded-lg border-[1px] border-gray-300 py-2.5 px-3">
+                                        <div class="flex items-center justify-center text-start gap-2 mx-3">
+                                            <img class="w-5 h-5" src="public/assets/icon/DE.png" alt="data entry">
+                                            <p class="text-sm text-nowrap">Data Entry</p>
+                                        </div>
+                                    </li>        
+                                    <li class="flex items-center justify-center cursor-pointer w-44 h-10 bg-white rounded-lg border-[1px] border-gray-300 py-2.5 px-3">
+                                        <div class="flex items-center justify-center text-start gap-2 mx-3">
+                                            <img class="w-7 h-5" src="public/assets/icon/VA.png" alt="virtual assistance">
+                                            <p class="text-sm text-nowrap">Virtual Assistance</p>
+                                        </div>
+                                    </li>        
+                                    <li class="flex items-center justify-center cursor-pointer w-44 h-10 bg-white rounded-lg border-[1px] border-gray-300 py-2.5 px-3">
+                                        <div class="flex items-center justify-center text-start gap-2 mx-3">
+                                            <img class="w-6 h-6" src="public/assets/icon/XD.png" alt="UI&UX">
+                                            <p class="text-sm text-nowrap">UI&UX</p>
+                                        </div>
+                                    </li>        
+                                    <li class="flex items-center justify-center cursor-pointer w-44 h-10 bg-white rounded-lg border-[1px] border-gray-300 py-2.5 px-3">
+                                        <div class="flex items-center justify-center text-start gap-2 mx-3">
+                                            <img class="w-7 h-5" src="public/assets/icon/Design.png" alt="draphic designer">
+                                            <p class="text-sm text-nowrap">Graphic Designer</p>
+                                        </div>
+                                    </li>     
+                                    <li class="flex items-center justify-center cursor-pointer w-44 h-10 bg-white rounded-lg border-[1px] border-gray-300 py-2.5 px-3">
+                                        <div class="flex items-center justify-center text-start gap-2 mx-3">
+                                            <img class="w-5 h-5" src="public/assets/icon/Finance.png" alt="finance">
+                                            <p class="text-sm text-nowrap">Finance</p>
+                                        </div>
+                                    </li>        
+                                    <li class="flex items-center justify-center cursor-pointer w-44 h-10 bg-white rounded-lg border-[1px] border-gray-300 py-2.5 px-3">
+                                        <div class="flex items-center justify-center text-start gap-2 mx-3">
+                                            <img class="w-5 h-5" src="public/assets/icon/DS.png" alt="data science">
+                                            <p class="text-sm text-nowrap">Data Science</p>
+                                        </div>
+                                    </li>        
+                                </ul>
+                            </div>
+                            <div class="grid grid-cols-12">
+                                <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3">
+                                    <div class="flex justify-between">
+                                        <div class="flex gap-2">
+                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Grab.png" alt="Grab">
+                                            <div>
+                                                <h1 class="text-xl font-medium line-clamp-1">Grab Indonesia</h1>
+                                                <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                            </div>
+                                        </div>
+                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-2xl font-bold line-clamp-1">Quality Assurance</h1>
+                                        <div class="flex gap-2">
+                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                            <h2 class="text-gray-400 text-sm">Posted 3 days ago</h2>
+                                        </div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
+                                    <div class="flex gap-2">
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years<sup>+</sup></h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Jira / Trello</h4>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 7 million/<span class="text-sm font-normal">month</span></h2>
+                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                            Apply Now
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3">
+                                    <div class="flex justify-between">
+                                        <div class="flex gap-2">
+                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Grab.png" alt="Grab">
+                                            <div>
+                                                <h1 class="text-xl font-medium line-clamp-1">Grab Indonesia</h1>
+                                                <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                            </div>
+                                        </div>
+                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-2xl font-bold line-clamp-1">Frontend Developer</h1>
+                                        <div class="flex gap-2">
+                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                            <h2 class="text-gray-400 text-sm">Posted 3 days ago</h2>
+                                        </div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
+                                    <div class="flex gap-2">
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">2 years <sup>+</sup></h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">React</h4>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 7 million/<span class="text-sm font-normal">month</span></h2>
+                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                            Apply Now
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3">
+                                    <div class="flex justify-between">
+                                        <div class="flex gap-2">
+                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Gramed.png" alt="Grab">
+                                            <div>
+                                                <h1 class="text-xl font-medium line-clamp-1">Gramedia</h1>
+                                                <p class="text-gray-400 text-sm">Yogyakarta, Indonesia</p>
+                                            </div>
+                                        </div>
+                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-2xl font-bold line-clamp-1">Frontend Developer</h1>
+                                        <div class="flex gap-2">
+                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                            <h2 class="text-gray-400 text-sm">Posted 1 days ago</h2>
+                                        </div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
+                                    <div class="flex gap-2">
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">2 years <sup>+</sup></h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Vue 3</h4>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 5 million/<span class="text-sm font-normal">month</span></h2>
+                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                            Apply Now
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3">
+                                    <div class="flex justify-between">
+                                        <div class="flex gap-2">
+                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/BI.png" alt="Grab">
+                                            <div>
+                                                <h1 class="text-xl font-medium line-clamp-1">Bank Indonesia</h1>
+                                                <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                            </div>
+                                        </div>
+                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-2xl font-bold line-clamp-1">Finance</h1>
+                                        <div class="flex gap-2">
+                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                        </div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
+                                    <div class="flex gap-2">
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">2 years <sup>+</sup></h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">MS. Office</h4>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
+                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                            Apply Now
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3 hidden md:block">
+                                    <div class="flex justify-between">
+                                        <div class="flex gap-2">
+                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/PT ANANTLA VENTURES INDONESIA.png" alt="Grab">
+                                            <div>
+                                                <h1 class="text-xl font-medium line-clamp-1">PT ANANTLA VENTURES INDONESIA</h1>
+                                                <p class="text-gray-400 text-sm">Bandung, Indonesia</p>
+                                            </div>
+                                        </div>
+                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-2xl font-bold line-clamp-1">Senior Mobile Developer (Kotlin & Swift)</h1>
+                                        <div class="flex gap-2">
+                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                        </div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
+                                    <div class="flex gap-2">
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
+                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                            Apply Now
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3 hidden md:block">
+                                    <div class="flex justify-between">
+                                        <div class="flex gap-2">
+                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Telkom.png" alt="Telkom">
+                                            <div>
+                                                <h1 class="text-xl font-medium line-clamp-1">PT Telkom</h1>
+                                                <p class="text-gray-400 text-sm">Surabaya, Indonesia</p>
+                                            </div>
+                                        </div>
+                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-2xl font-bold line-clamp-1">Senior Mobile Developer (Kotlin & Swift)</h1>
+                                        <div class="flex gap-2">
+                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                        </div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
+                                    <div class="flex gap-2">
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 12 million/<span class="text-sm font-normal">month</span></h2>
+                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                            Apply Now
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3 hidden md:block">
+                                    <div class="flex justify-between">
+                                        <div class="flex gap-2">
+                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Kirimin.jpeg" alt="Kirimin">
+                                            <div>
+                                                <h1 class="text-xl font-medium line-clamp-1">KiriminAja</h1>
+                                                <p class="text-gray-400 text-sm">Yogyakarta, Indonesia</p>
+                                            </div>
+                                        </div>
+                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-2xl font-bold line-clamp-1">Mobile Developer</h1>
+                                        <div class="flex gap-2">
+                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                        </div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
+                                    <div class="flex gap-2">
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years <sup>+</sup></h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
+                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                            Apply Now
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3 hidden lg:block">
+                                    <div class="flex justify-between">
+                                        <div class="flex gap-2">
+                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Medical.png" alt="Medic">
+                                            <div>
+                                                <h1 class="text-xl font-medium line-clamp-1">ACE Medical</h1>
+                                                <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                            </div>
+                                        </div>
+                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-2xl font-bold line-clamp-1">Dentist Klinik Safira Medical Care Karawang</h1>
+                                        <div class="flex gap-2">
+                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                        </div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
+                                    <div class="flex gap-2">
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 7 million/<span class="text-sm font-normal">month</span></h2>
+                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                            Apply Now
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3 hidden lg:block">
+                                    <div class="flex justify-between">
+                                        <div class="flex gap-2">
+                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Gojek.png" alt="Gojek">
+                                            <div>
+                                                <h1 class="text-xl font-medium line-clamp-1">Gojek</h1>
+                                                <p class="text-gray-400 text-sm">Malang, Indonesia</p>
+                                            </div>
+                                        </div>
+                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-2xl font-bold line-clamp-1">Senior Mobile Developer (Kotlin & Swift)</h1>
+                                        <div class="flex gap-2">
+                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                        </div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
+                                    <div class="flex gap-2">
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
+                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                            Apply Now
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3 hidden lg:block">
+                                    <div class="flex justify-between">
+                                        <div class="flex gap-2">
+                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/PT Pemindo Mitra Sinergi.png" alt="Pemindo">
+                                            <div>
+                                                <h1 class="text-xl font-medium line-clamp-1">PT Pemindo Mitra Sinergi</h1>
+                                                <p class="text-gray-400 text-sm">Bandung, Indonesia</p>
+                                            </div>
+                                        </div>
+                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-2xl font-bold line-clamp-1">Sales Marketing</h1>
+                                        <div class="flex gap-2">
+                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                        </div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
+                                    <div class="flex gap-2">
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years <sup>+</sup></h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Diploma (D1 - D4)</h4>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 4 million/<span class="text-sm font-normal">month</span></h2>
+                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                            Apply Now
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3 hidden lg:block">
+                                    <div class="flex justify-between">
+                                        <div class="flex gap-2">
+                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Pertamina.png" alt="Pertamina">
+                                            <div>
+                                                <h1 class="text-xl font-medium line-clamp-1">Pertamina</h1>
+                                                <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                            </div>
+                                        </div>
+                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-2xl font-bold line-clamp-1">Sales Marketing</h1>
+                                        <div class="flex gap-2">
+                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                        </div>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
+                                    <div class="flex gap-2">
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years <sup>+</sup></h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Diploma (D1 - D4)</h4>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 5 million/<span class="text-sm font-normal">month</span></h2>
+                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                            Apply Now
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-100 rounded-xl shadow-md col-span-12 overflow-hidden m-2 lg:col-span-3">
+                                    <div class="w-[290px] h-[390px] md:h-[350px] md:w-[725px] lg:w-[310px] lg:h-[365px] bg-gradient-to-t lg:bg-gradient-to-l from-white rounded-xl absolute"></div>
+                                    <div class="flex-col flex px-4 py-6 gap-4">
+                                        <div class="flex justify-between">
+                                            <div class="flex gap-2">
+                                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Gramed.png" alt="Gramedia">
+                                                <div>
+                                                    <h1 class="text-xl font-medium line-clamp-1">Gramedia</h1>
+                                                    <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                                </div>
+                                            </div>
+                                            <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
+                                        </div>
+                                        <div>
+                                            <h1 class="text-2xl font-bold line-clamp-1">Finance</h1>
+                                            <div class="flex gap-2">
+                                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
+                                        <div class="flex gap-2">
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">2 years <sup>+</sup></h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Diploma (D1 - D4)</h4>
+                                        </div>
+                                        <div class="flex justify-between items-center mt-2">
+                                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
+                                            <button class="bg-tertiary text-white rounded-md px-4 py-2 cursor-not-allowed">
+                                                Apply Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative col-span-12 lg:w-1/4 -translate-x-1/2 left-1/2 lg:right-1/2 mt-5">
+                                    <button class="bg-tertiary text-white py-2 px-2 rounded-full w-full lg:right-0">View All Jobs</button>
+                                    <ion-icon name="arrow-forward-outline" class="ml-1 bg-white py-[10.5px] px-3 rounded-full absolute top-0 right-0 border-tertiary text-tertiary border-2"></ion-icon>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex flex-col gap-2 mt-2">
-                            <h1 class="text-lg font-medium">Jane Doe</h1>
-                            <h4 class="text-sm text-gray-400 font-semibold">Human Resource</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur. Nec mattis viverra magna tempus habitant. A sagittis ultrices in vitae. Vel consectetur integer </p>
-                        </div>
-                    </div>        
-                    <div class="w-1/3 h-300 py-10 px-8 bg-white rounded-xl shadow-md">
-                        <div class="flex justify-between items-center">
-                            <img src="public/assets/Photo-2.png" alt="Erick">
-                            <div>
-                                <img src="public/assets/Frame.png" width="20" height="20" alt="Erick">
-                            </div>
-                        </div>
-                        <div class="flex flex-col gap-2 mt-2">
-                            <h1 class="text-lg font-medium">Erick</h1>
-                            <h4 class="text-sm text-gray-400 font-semibold">Frontend Developer</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur. Nec mattis viverra magna tempus habitant. A sagittis ultrices in vitae. Vel consectetur integer </p>
-                        </div>
-                    </div>        
-                    <div class="w-1/3 h-300 py-10 px-8 bg-white rounded-xl shadow-md">
-                        <div class="flex justify-between items-center">
-                            <img src="public/assets/Photo-3.png" alt="Natasha">
-                            <div>
-                                <img src="public/assets/Frame.png" width="20" height="20" alt="Natasha">
-                            </div>
-                        </div>
-                        <div class="flex flex-col gap-2 mt-2">
-                            <h1 class="text-lg font-medium">Natasha</h1>
-                            <h4 class="text-sm text-gray-400 font-semibold">Director</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur. Nec mattis viverra magna tempus habitant. A sagittis ultrices in vitae. Vel consectetur integer </p>
-                        </div>
-                    </div>    
+                    </div>
                 </div>
-                <div class="flex items-center justify-center mt-10">
-                    <div class="relative w-64">
-                        <div class="absolute top-2.5 -z-10 left-0 w-60 h-1 bg-tertiary"></div>
-                        <div class="flex justify-between items-center">
-                            <div class="flex-shrink-0 w-6 h-6 bg-tertiary rounded-full flex items-center justify-center"></div>
-                            <div class="flex-shrink-0 w-6 h-6 border-4 border-tertiary bg-white rounded-full flex items-center justify-center"></div>
-                            <div class="flex-shrink-0 w-6 h-6 bg-tertiary rounded-full flex items-center justify-center"></div>
-                            <div class="flex-shrink-0 w-6 h-6 bg-tertiary rounded-full flex items-center justify-center"></div>
+            </section>
+
+            <!-- Recruiter section -->
+            <section class="lg:pb-20">
+                <div class="container mx-auto p-4">
+                    <div class="grid grid-cols-12">
+                        <div class="col-span-12 md:col-span-8 lg:col-span-6">
+                            <div class="flex flex-col gap-4 lg:gap-10">
+                                <h1 class="text-4xl font-semibold lg:tracking-wide">Unlock Exciting Opportunities as a Talent Magnet! 🚀</h1>
+                                <div class="flex gap-2 flex-col mt-4">
+                                    <p class="text-sm text-gray-400 font-normal leading-relaxed">Ever considered the dynamic role of a recruiter? Join the league of skilled professionals who shape careers and organizations. Discover the art of connecting top talent with incredible job opportunities.</p>
+                                    <p class="text-sm text-gray-400 font-normal leading-relaxed">Embark on a rewarding journey where your skills meet endless possibilities. Become a recruiter and play a vital role in shaping the future workforce.</p>
+                                    <p class="text-sm text-gray-400 font-normal leading-relaxed">Ready to explore a world of talent acquisition? Let's dive in together!</p>
+                                </div>
+                                <div class="flex gap-4 flex-col px-5 py-3 md:flex-row md:w-3/4 md:px-2 md:translate-x-1/2 lg:translate-x-0">
+                                    <div class="relative w-full md:w-3/4 lg:w-1/3">
+                                        <button class="bg-tertiary text-white py-2 px-4 rounded-full w-full">Get Started</button>
+                                        <ion-icon name="arrow-forward-outline" class="ml-1 bg-white py-[10.5px] px-3 rounded-full absolute top-0 -right-1.5 border-tertiary text-tertiary border-2"></ion-icon>
+                                    </div>
+                                    <button class="border-2 border-tertiary py-2 px-4 rounded-full w-full md:w-3/4 lg:w-1/3">Upload Poster</button>
+                                </div>
+                            </div>
+                        </div>    
+                        <div class="col-span-12 md:col-span-4 lg:col-span-6">
+                            <div class="lg:relative">
+                                <img class="w-fit lg:1/3 lg:absolute lg:left-0 lg:right-0 lg:-top-8" src="public/assets/works.gif" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- testimoni section -->
+            <section class="py-10">
+                <div class="container mx-auto p-4">
+                    <div class="grid grid-cols-12">
+                        <div class="col-span-12">
+                            <div class="flex flex-col gap-2 md:items-center">
+                                <h1 class="text-4xl font-semibold">What do they say about us?</h1>
+                                <p class="text-gray-400 text-sm md:w-1/2 md:text-center">GoodJob provides a fantastic platform for job seekers to post their openings, find jobs, and achieve success</p>
+                            </div>
+                        </div>
+                        <div class="col-span-12">
+                            <div class="flex md:justify-around md:gap-4 mt-10 md:mt-20">
+                                <div class="w-full py-10 px-8 bg-white rounded-xl drop-shadow-lg md:w-1/2 lg:w-1/3">
+                                    <div class="flex justify-between items-center">
+                                        <img src="public/assets/Photo-1.png" alt="Jane Doe">
+                                        <div>
+                                            <img src="public/assets/Frame.png" width="20" height="20" alt="Jane Doe">
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-2 mt-2">
+                                        <h1 class="text-lg font-medium">Jane Doe</h1>
+                                        <h4 class="text-sm text-gray-400 font-semibold">Human Resource</h4>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Nec mattis viverra magna tempus habitant. A sagittis ultrices in vitae. Vel consectetur integer </p>
+                                    </div>
+                                </div>        
+                                <div class="w-1/2 py-10 px-8 bg-white rounded-xl drop-shadow-lg hidden md:block lg:w-1/3">
+                                    <div class="flex justify-between items-center">
+                                        <img src="public/assets/Photo-2.png" alt="Erick">
+                                        <div>
+                                            <img src="public/assets/Frame.png" width="20" height="20" alt="Erick">
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-2 mt-2">
+                                        <h1 class="text-lg font-medium">Erick</h1>
+                                        <h4 class="text-sm text-gray-400 font-semibold">Frontend Developer</h4>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Nec mattis viverra magna tempus habitant. A sagittis ultrices in vitae. Vel consectetur integer </p>
+                                    </div>
+                                </div>        
+                                <div class="w-1/3 py-10 px-8 bg-white rounded-xl drop-shadow-lg hidden lg:block">
+                                    <div class="flex justify-between items-center">
+                                        <img src="public/assets/Photo-3.png" alt="Natasha">
+                                        <div>
+                                            <img src="public/assets/Frame.png" width="20" height="20" alt="Natasha">
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-2 mt-2">
+                                        <h1 class="text-lg font-medium">Natasha</h1>
+                                        <h4 class="text-sm text-gray-400 font-semibold">Director</h4>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Nec mattis viverra magna tempus habitant. A sagittis ultrices in vitae. Vel consectetur integer </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="items-center justify-center mt-10 hidden lg:flex">
+                                <div class="relative w-64">
+                                    <div class="absolute top-2.5 -z-10 left-0 w-60 h-1 bg-tertiary"></div>
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex-shrink-0 w-6 h-6 bg-tertiary rounded-full flex items-center justify-center"></div>
+                                        <div class="flex-shrink-0 w-6 h-6 border-4 border-tertiary bg-white rounded-full flex items-center justify-center"></div>
+                                        <div class="flex-shrink-0 w-6 h-6 bg-tertiary rounded-full flex items-center justify-center"></div>
+                                        <div class="flex-shrink-0 w-6 h-6 bg-tertiary rounded-full flex items-center justify-center"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
         </article>
     </main>
-    <footer class="pt-10 pb-20 bg-primary px-[133px]">
-        <div class="flex justify-between mb-10">
-            <div class="w-60 flex flex-col gap-4">
+    <footer class="px-4 py-5 mx-auto container bg-primary lg:px-[100px]">
+        <div class="grid grid-cols-12">
+            <div class="col-span-12 mt-4 md:col-span-4">
                 <img class="w-44" src="public/assets/logo-footer.png" alt="logo">
-                <p class="text-white text-sm text-justify">Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
+                <p class="text-white text-sm text-justify indent-2">Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
             </div>
-            <div class="w-60">
-                <h1 class="text-white font-semibold text-xl text-center pb-5">Menu</h1>
-                <ul class="flex flex-col justify-center items-center gap-2">
+            <div class="col-span-12 mt-4 md:col-span-4">
+                <h1 class="text-white font-semibold text-xl md:text-center pb-2 md:pb-5">Menu</h1>
+                <ul class="flex flex-col justify-center md:items-center gap-2">
                     <li class="text-white"><a href="#">Home</a></li>
                     <li class="text-white"><a href="#">Find Jobs</a></li>
                     <li class="text-white"><a href="#">Recruiters</a></li>
@@ -643,8 +802,8 @@
                     <li class="text-white"><a href="#">Blog</a></li>
                 </ul>
             </div>
-            <div class="w-60">
-                <h1 class="text-white font-semibold text-xl pb-5">Contact Us</h1>
+            <div class="col-span-12 mt-4 md:col-span-4">
+                <h1 class="text-white font-semibold text-xl pb-2 md:pb-5">Contact Us</h1>
                 <ul class="flex flex-col gap-2">
                     <li class="text-white">Call the Service Desk for help with your request, question and problems.</li>
                     <li class="text-white"><i class="fa-solid fa-phone-volume mr-2" style="color: #99cb3c;"></i> 999-888-7776</li>
@@ -654,8 +813,20 @@
         </div>
         <div class="relative w-full mt-auto ">
             <div class="absolute left-0 w-full h-0.5 bg-white"></div>
-            <p class="mt-4 text-white">&copy; 2024 <span class="text-tertiary">GoodJob</span>. All Rights Reserved</p>
+            <p class="text-sm mt-4 text-white lg:text-base">&copy; 2024 <span class="text-tertiary">GoodJob</span>. All Rights Reserved</p>
         </div>
     </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script>
+        const tabsBox = document.querySelector(".tabs-box");
+
+        const dragging = (e) => {
+            console.log("draging....")
+            tabsBox.scrollLeft -= e.movementX;
+        }
+
+        tabsBox.addEventListener("mousemove", dragging);
+    </script>
 </body>
 </html>
