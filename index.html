@@ -19,7 +19,7 @@
                     <img @click="navOpen = !navOpen" src="public/assets/Svg/toogle.svg" alt="" class="lg:hidden order-2 sm:order-1">
                     <div class="order-2 hidden lg:block">
                         <ul class="flex gap-16">
-                            <li class="mx-2 hover:text-tertiary hover:underline hover:underline-offset-8"><a href="#">Home</a></li>
+                            <li class="mx-2 text-tertiary underline underline-offset-8"><a href="#">Home</a></li>
                             <li class="mx-2 hover:text-tertiary hover:underline hover:underline-offset-8 opacity-50"><a href="#">Recruiters</a></li>
                             <li class="mx-2 hover:text-tertiary hover:underline hover:underline-offset-8 opacity-50"><a href="#">Candidates</a></li>
                             <li class="mx-2 hover:text-tertiary hover:underline hover:underline-offset-8 opacity-50"><a href="#">Companies</a></li>
@@ -176,66 +176,82 @@
             <section>
                 <div class="container mx-auto p-4">
                     <div class="grid grid-cols-12">
-                        <div class="col-span-12">
-                            <h1 class="text-3xl font-medium">Browse by category</h1>
-                        <p class="text-gray-400 text-sm w-3/4 lg:text-base">Find the job that’s perfect for you, about 900+ new jobs everyday</p>
-                        </div>
-                        <div class="col-span-12">
-                            <div class="flex flex-col gap-2">
+                        <div class="col-span-12 my-4">
+                            <div class="flex justify-between items-end">
+                                <div class="flex flex-col grow">
+                                    <h1 class="text-3xl font-medium">Browse by category</h1>
+                                    <p class="text-gray-400 text-sm w-3/4 lg:text-base">Find the job that’s perfect for you, about 900+ new jobs everyday</p>
+                                </div>
                                 <a href="#" class="flex items-center justify-end">
                                     <p class="text-base">All Categories</p>
                                     <ion-icon name="chevron-forward-outline" class="mt-1"></ion-icon>
                                 </a>
-                                <div>
-                                    <div class="flex justify-center flex-wrap gap-1 lg:gap-4">
-                                        <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md">
-                                            <img class="lg:mx-4" src="public/assets/icon/DE.png" alt="">
-                                            <div class="text-center lg:flex-grow">
-                                                <p class="text-base font-normal lg:font-medium lg:text-lg">Data Entry</p>
-                                                <p class="text-gray-400 text-xs font-normal">10 open positions</p>
-                                            </div>
+                            </div>
+                        </div>
+                        <div class="col-span-12">
+                            <div>
+                                <div class="flex justify-center flex-wrap gap-1 lg:gap-4">
+                                    <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md cursor-pointer">
+                                        <img class="lg:mx-4" src="public/assets/icon/DE.png" alt="">
+                                        <div class="text-center lg:flex-grow">
+                                            <p class="text-base font-normal lg:font-medium lg:text-lg">Data Entry</p>
+                                            <p class="text-gray-400 text-xs font-normal">10 open positions</p>
                                         </div>
-                                        <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md">
-                                            <img class="lg:mx-4" src="public/assets/icon/WP.png" alt="">
-                                            <div class="text-center lg:flex-grow">
-                                                <p class="text-base font-normal lg:font-medium lg:text-lg">Wordpress</p>
-                                                <p class="text-gray-400 text-xs font-normal">10 open positions</p>
-                                            </div>
+                                    </div>
+                                    <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md cursor-pointer">
+                                        <img class="lg:mx-4" src="public/assets/icon/WP.png" alt="">
+                                        <div class="text-center lg:flex-grow">
+                                            <p class="text-base font-normal lg:font-medium lg:text-lg">Wordpress</p>
+                                            <p class="text-gray-400 text-xs font-normal">10 open positions</p>
                                         </div>
-                                        <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md">
-                                            <img class="lg:mx-4" src="public/assets/icon/Design.png" alt="">
-                                            <div class="text-center lg:flex-grow">
-                                                <p class="text-base font-normal lg:font-medium lg:text-lg">Graphic Designer</p>
-                                                <p class="text-gray-400 text-xs font-normal">10 open positions</p>
-                                            </div>
+                                    </div>
+                                    <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md cursor-pointer">
+                                        <img class="lg:mx-4" src="public/assets/icon/Design.png" alt="">
+                                        <div class="text-center lg:flex-grow">
+                                            <p class="text-base font-normal lg:font-medium lg:text-lg">Graphic Designer</p>
+                                            <p class="text-gray-400 text-xs font-normal">10 open positions</p>
                                         </div>
-                                        <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md">
-                                            <img class="lg:mx-4" src="public/assets/icon/DS.png" alt="">
-                                            <div class="text-center lg:flex-grow">
-                                                <p class="text-base font-normal lg:font-medium lg:text-lg">Data Science</p>
-                                                <p class="text-gray-400 text-xs font-normal">10 open positions</p>
-                                            </div>
+                                    </div>
+                                    <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md cursor-pointer">
+                                        <img class="lg:mx-4" src="public/assets/icon/DS.png" alt="">
+                                        <div class="text-center lg:flex-grow">
+                                            <p class="text-base font-normal lg:font-medium lg:text-lg">Data Science</p>
+                                            <p class="text-gray-400 text-xs font-normal">10 open positions</p>
                                         </div>
-                                        <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md">
-                                            <img class="lg:mx-4" src="public/assets/icon/FE.png" alt="">
-                                            <div class="text-center lg:flex-grow">
-                                                <p class="text-base font-normal lg:font-medium lg:text-lg">Frontend Developer</p>
-                                                <p class="text-gray-400 text-xs font-normal">10 open positions</p>
-                                            </div>
+                                    </div>
+                                    <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md cursor-pointer">
+                                        <img class="lg:mx-4" src="public/assets/icon/FE.png" alt="">
+                                        <div class="text-center lg:flex-grow">
+                                            <p class="text-base font-normal lg:font-medium lg:text-lg">Frontend Developer</p>
+                                            <p class="text-gray-400 text-xs font-normal">10 open positions</p>
                                         </div>
-                                        <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md">
-                                            <img class="lg:mx-4" src="public/assets/icon/Finance.png" alt="">
-                                            <div class="text-center lg:flex-grow">
-                                                <p class="text-base font-normal lg:font-medium lg:text-lg">Finance</p>
-                                                <p class="text-gray-400 text-xs font-normal">10 open positions</p>
-                                            </div>
+                                    </div>
+                                    <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md cursor-pointer">
+                                        <img class="lg:mx-4" src="public/assets/icon/Finance.png" alt="">
+                                        <div class="text-center lg:flex-grow">
+                                            <p class="text-base font-normal lg:font-medium lg:text-lg">Finance</p>
+                                            <p class="text-gray-400 text-xs font-normal">10 open positions</p>
                                         </div>
-                                        <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md">
-                                            <img class="lg:mx-4" src="public/assets/icon/XD.png" alt="">
-                                            <div class="text-center lg:flex-grow">
-                                                <p class="text-base font-normal lg:font-medium lg:text-lg">UI&UX</p>
-                                                <p class="text-gray-400 text-xs font-normal">10 open positions</p>
-                                            </div>
+                                    </div>
+                                    <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md cursor-pointer">
+                                        <img class="lg:mx-4" src="public/assets/icon/XD.png" alt="">
+                                        <div class="text-center lg:flex-grow">
+                                            <p class="text-base font-normal lg:font-medium lg:text-lg">UI&UX</p>
+                                            <p class="text-gray-400 text-xs font-normal">10 open positions</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md cursor-pointer">
+                                        <img class="lg:mx-4" src="public/assets/icon/VA.png" alt="">
+                                        <div class="text-center lg:flex-grow">
+                                            <p class="text-base font-normal lg:font-medium lg:text-lg">Virtual Assistance</p>
+                                            <p class="text-gray-400 text-xs font-normal">10 open positions</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col items-center lg:flex-row justify-center p-3 w-fit bg-white border-2 gap-2 rounded-md cursor-pointer">
+                                        <img class="lg:mx-4" src="public/assets/icon/Web.png" alt="">
+                                        <div class="text-center lg:flex-grow">
+                                            <p class="text-base font-normal lg:font-medium lg:text-lg">Web Developer</p>
+                                            <p class="text-gray-400 text-xs font-normal">10 open positions</p>
                                         </div>
                                     </div>
                                 </div>
@@ -302,344 +318,366 @@
                             </div>
                             <div class="grid grid-cols-12">
                                 <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3">
-                                    <div class="flex justify-between">
-                                        <div class="flex gap-2">
-                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Grab.png" alt="Grab">
-                                            <div>
-                                                <h1 class="text-xl font-medium line-clamp-1">Grab Indonesia</h1>
-                                                <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                        <div class="flex flex-col gap-4">
+                                        <div class="flex justify-between">
+                                            <div class="flex gap-2">
+                                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Grab.png" alt="Grab">
+                                                <div>
+                                                    <h1 class="text-xl font-medium line-clamp-1">Grab Indonesia</h1>
+                                                    <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                                </div>
+                                            </div>
+                                            <ion-icon name="bookmark-outline" class="text-3xl text-tertiary cursor-pointer"></ion-icon>
+                                        </div>
+                                        <div>
+                                            <h1 class="text-2xl font-bold line-clamp-1">Quality Assurance</h1>
+                                            <div class="flex gap-2">
+                                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                                <h2 class="text-gray-400 text-sm">Posted 3 days ago</h2>
                                             </div>
                                         </div>
-                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                                    </div>
-                                    <div>
-                                        <h1 class="text-2xl font-bold line-clamp-1">Quality Assurance</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
                                         <div class="flex gap-2">
-                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                            <h2 class="text-gray-400 text-sm">Posted 3 days ago</h2>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years<sup>+</sup></h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Jira / Trello</h4>
                                         </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                                    <div class="flex gap-2">
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years<sup>+</sup></h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Jira / Trello</h4>
-                                    </div>
-                                    <div class="flex justify-between items-center mt-2">
-                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 7 million/<span class="text-sm font-normal">month</span></h2>
-                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                            Apply Now
-                                        </button>
+                                        <div class="flex justify-between items-center mt-2">
+                                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 7 million/<span class="text-sm font-normal">month</span></h2>
+                                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                                Apply Now
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3">
-                                    <div class="flex justify-between">
-                                        <div class="flex gap-2">
-                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Grab.png" alt="Grab">
-                                            <div>
-                                                <h1 class="text-xl font-medium line-clamp-1">Grab Indonesia</h1>
-                                                <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                        <div class="flex flex-col gap-4">
+                                        <div class="flex justify-between">
+                                            <div class="flex gap-2">
+                                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Grab.png" alt="Grab">
+                                                <div>
+                                                    <h1 class="text-xl font-medium line-clamp-1">Grab Indonesia</h1>
+                                                    <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                                </div>
+                                            </div>
+                                            <ion-icon name="bookmark-outline" class="text-3xl text-tertiary cursor-pointer"></ion-icon>
+                                        </div>
+                                        <div>
+                                            <h1 class="text-2xl font-bold line-clamp-1">Frontend Developer</h1>
+                                            <div class="flex gap-2">
+                                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                                <h2 class="text-gray-400 text-sm">Posted 3 days ago</h2>
                                             </div>
                                         </div>
-                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                                    </div>
-                                    <div>
-                                        <h1 class="text-2xl font-bold line-clamp-1">Frontend Developer</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
                                         <div class="flex gap-2">
-                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                            <h2 class="text-gray-400 text-sm">Posted 3 days ago</h2>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">2 years <sup>+</sup></h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">React</h4>
                                         </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                                    <div class="flex gap-2">
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">2 years <sup>+</sup></h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">React</h4>
-                                    </div>
-                                    <div class="flex justify-between items-center mt-2">
-                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 7 million/<span class="text-sm font-normal">month</span></h2>
-                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                            Apply Now
-                                        </button>
+                                        <div class="flex justify-between items-center mt-2">
+                                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 7 million/<span class="text-sm font-normal">month</span></h2>
+                                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                                Apply Now
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3">
-                                    <div class="flex justify-between">
-                                        <div class="flex gap-2">
-                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Gramed.png" alt="Grab">
-                                            <div>
-                                                <h1 class="text-xl font-medium line-clamp-1">Gramedia</h1>
-                                                <p class="text-gray-400 text-sm">Yogyakarta, Indonesia</p>
+                                        <div class="flex flex-col gap-4">
+                                        <div class="flex justify-between">
+                                            <div class="flex gap-2">
+                                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Gramed.png" alt="Grab">
+                                                <div>
+                                                    <h1 class="text-xl font-medium line-clamp-1">Gramedia</h1>
+                                                    <p class="text-gray-400 text-sm">Yogyakarta, Indonesia</p>
+                                                </div>
+                                            </div>
+                                            <ion-icon name="bookmark-outline" class="text-3xl text-tertiary cursor-pointer"></ion-icon>
+                                        </div>
+                                        <div>
+                                            <h1 class="text-2xl font-bold line-clamp-1">Frontend Developer</h1>
+                                            <div class="flex gap-2">
+                                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                                <h2 class="text-gray-400 text-sm">Posted 1 days ago</h2>
                                             </div>
                                         </div>
-                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                                    </div>
-                                    <div>
-                                        <h1 class="text-2xl font-bold line-clamp-1">Frontend Developer</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
                                         <div class="flex gap-2">
-                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                            <h2 class="text-gray-400 text-sm">Posted 1 days ago</h2>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">2 years <sup>+</sup></h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Vue 3</h4>
                                         </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                                    <div class="flex gap-2">
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">2 years <sup>+</sup></h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Vue 3</h4>
-                                    </div>
-                                    <div class="flex justify-between items-center mt-2">
-                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 5 million/<span class="text-sm font-normal">month</span></h2>
-                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                            Apply Now
-                                        </button>
+                                        <div class="flex justify-between items-center mt-2">
+                                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 5 million/<span class="text-sm font-normal">month</span></h2>
+                                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                                Apply Now
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3">
-                                    <div class="flex justify-between">
-                                        <div class="flex gap-2">
-                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/BI.png" alt="Grab">
-                                            <div>
-                                                <h1 class="text-xl font-medium line-clamp-1">Bank Indonesia</h1>
-                                                <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                        <div class="flex flex-col gap-4">
+                                        <div class="flex justify-between">
+                                            <div class="flex gap-2">
+                                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/BI.png" alt="Grab">
+                                                <div>
+                                                    <h1 class="text-xl font-medium line-clamp-1">Bank Indonesia</h1>
+                                                    <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                                </div>
+                                            </div>
+                                            <ion-icon name="bookmark-outline" class="text-3xl text-tertiary cursor-pointer"></ion-icon>
+                                        </div>
+                                        <div>
+                                            <h1 class="text-2xl font-bold line-clamp-1">Finance</h1>
+                                            <div class="flex gap-2">
+                                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
                                             </div>
                                         </div>
-                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                                    </div>
-                                    <div>
-                                        <h1 class="text-2xl font-bold line-clamp-1">Finance</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
                                         <div class="flex gap-2">
-                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">2 years <sup>+</sup></h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">MS. Office</h4>
                                         </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                                    <div class="flex gap-2">
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">2 years <sup>+</sup></h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">MS. Office</h4>
-                                    </div>
-                                    <div class="flex justify-between items-center mt-2">
-                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
-                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                            Apply Now
-                                        </button>
+                                        <div class="flex justify-between items-center mt-2">
+                                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
+                                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                                Apply Now
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3 hidden md:block">
-                                    <div class="flex justify-between">
-                                        <div class="flex gap-2">
-                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/PT ANANTLA VENTURES INDONESIA.png" alt="Grab">
-                                            <div>
-                                                <h1 class="text-xl font-medium line-clamp-1">PT ANANTLA VENTURES INDONESIA</h1>
-                                                <p class="text-gray-400 text-sm">Bandung, Indonesia</p>
+                                    <div class="flex flex-col gap-4">
+                                        <div class="flex justify-between">
+                                            <div class="flex gap-2">
+                                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/PT ANANTLA VENTURES INDONESIA.png" alt="Grab">
+                                                <div>
+                                                    <h1 class="text-xl font-medium line-clamp-1">PT ANANTLA VENTURES INDONESIA</h1>
+                                                    <p class="text-gray-400 text-sm">Bandung, Indonesia</p>
+                                                </div>
+                                            </div>
+                                            <ion-icon name="bookmark-outline" class="text-3xl text-tertiary cursor-pointer"></ion-icon>
+                                        </div>
+                                        <div>
+                                            <h1 class="text-2xl font-bold line-clamp-1">Senior Mobile Developer (Kotlin & Swift)</h1>
+                                            <div class="flex gap-2">
+                                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
                                             </div>
                                         </div>
-                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                                    </div>
-                                    <div>
-                                        <h1 class="text-2xl font-bold line-clamp-1">Senior Mobile Developer (Kotlin & Swift)</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
                                         <div class="flex gap-2">
-                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
                                         </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                                    <div class="flex gap-2">
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
-                                    </div>
-                                    <div class="flex justify-between items-center mt-2">
-                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
-                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                            Apply Now
-                                        </button>
+                                        <div class="flex justify-between items-center mt-2">
+                                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
+                                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                                Apply Now
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3 hidden md:block">
-                                    <div class="flex justify-between">
-                                        <div class="flex gap-2">
-                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Telkom.png" alt="Telkom">
-                                            <div>
-                                                <h1 class="text-xl font-medium line-clamp-1">PT Telkom</h1>
-                                                <p class="text-gray-400 text-sm">Surabaya, Indonesia</p>
+                                        <div class="flex flex-col gap-4">
+                                        <div class="flex justify-between">
+                                            <div class="flex gap-2">
+                                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Telkom.png" alt="Telkom">
+                                                <div>
+                                                    <h1 class="text-xl font-medium line-clamp-1">PT Telkom</h1>
+                                                    <p class="text-gray-400 text-sm">Surabaya, Indonesia</p>
+                                                </div>
+                                            </div>
+                                            <ion-icon name="bookmark-outline" class="text-3xl text-tertiary cursor-pointer"></ion-icon>
+                                        </div>
+                                        <div>
+                                            <h1 class="text-2xl font-bold line-clamp-1">Senior Mobile Developer (Kotlin & Swift)</h1>
+                                            <div class="flex gap-2">
+                                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
                                             </div>
                                         </div>
-                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                                    </div>
-                                    <div>
-                                        <h1 class="text-2xl font-bold line-clamp-1">Senior Mobile Developer (Kotlin & Swift)</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
                                         <div class="flex gap-2">
-                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
                                         </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                                    <div class="flex gap-2">
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
-                                    </div>
-                                    <div class="flex justify-between items-center mt-2">
-                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 12 million/<span class="text-sm font-normal">month</span></h2>
-                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                            Apply Now
-                                        </button>
+                                        <div class="flex justify-between items-center mt-2">
+                                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 12 million/<span class="text-sm font-normal">month</span></h2>
+                                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                                Apply Now
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3 hidden md:block">
-                                    <div class="flex justify-between">
-                                        <div class="flex gap-2">
-                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Kirimin.jpeg" alt="Kirimin">
-                                            <div>
-                                                <h1 class="text-xl font-medium line-clamp-1">KiriminAja</h1>
-                                                <p class="text-gray-400 text-sm">Yogyakarta, Indonesia</p>
+                                    <div class="flex flex-col gap-4">
+                                        <div class="flex justify-between">
+                                            <div class="flex gap-2">
+                                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Kirimin.jpeg" alt="Kirimin">
+                                                <div>
+                                                    <h1 class="text-xl font-medium line-clamp-1">KiriminAja</h1>
+                                                    <p class="text-gray-400 text-sm">Yogyakarta, Indonesia</p>
+                                                </div>
+                                            </div>
+                                            <ion-icon name="bookmark-outline" class="text-3xl text-tertiary cursor-pointer"></ion-icon>
+                                        </div>
+                                        <div>
+                                            <h1 class="text-2xl font-bold line-clamp-1">Mobile Developer</h1>
+                                            <div class="flex gap-2">
+                                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
                                             </div>
                                         </div>
-                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                                    </div>
-                                    <div>
-                                        <h1 class="text-2xl font-bold line-clamp-1">Mobile Developer</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
                                         <div class="flex gap-2">
-                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years <sup>+</sup></h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
                                         </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                                    <div class="flex gap-2">
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years <sup>+</sup></h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
-                                    </div>
-                                    <div class="flex justify-between items-center mt-2">
-                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
-                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                            Apply Now
-                                        </button>
+                                        <div class="flex justify-between items-center mt-2">
+                                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
+                                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                                Apply Now
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3 hidden lg:block">
-                                    <div class="flex justify-between">
-                                        <div class="flex gap-2">
-                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Medical.png" alt="Medic">
-                                            <div>
-                                                <h1 class="text-xl font-medium line-clamp-1">ACE Medical</h1>
-                                                <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                        <div class="flex flex-col gap-4">
+                                        <div class="flex justify-between">
+                                            <div class="flex gap-2">
+                                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Medical.png" alt="Medic">
+                                                <div>
+                                                    <h1 class="text-xl font-medium line-clamp-1">ACE Medical</h1>
+                                                    <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                                </div>
+                                            </div>
+                                            <ion-icon name="bookmark-outline" class="text-3xl text-tertiary cursor-pointer"></ion-icon>
+                                        </div>
+                                        <div>
+                                            <h1 class="text-2xl font-bold line-clamp-1">Dentist Klinik Safira Medical Care Karawang</h1>
+                                            <div class="flex gap-2">
+                                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
                                             </div>
                                         </div>
-                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                                    </div>
-                                    <div>
-                                        <h1 class="text-2xl font-bold line-clamp-1">Dentist Klinik Safira Medical Care Karawang</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
                                         <div class="flex gap-2">
-                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
                                         </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                                    <div class="flex gap-2">
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
-                                    </div>
-                                    <div class="flex justify-between items-center mt-2">
-                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 7 million/<span class="text-sm font-normal">month</span></h2>
-                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                            Apply Now
-                                        </button>
+                                        <div class="flex justify-between items-center mt-2">
+                                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 7 million/<span class="text-sm font-normal">month</span></h2>
+                                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                                Apply Now
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3 hidden lg:block">
-                                    <div class="flex justify-between">
-                                        <div class="flex gap-2">
-                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Gojek.png" alt="Gojek">
-                                            <div>
-                                                <h1 class="text-xl font-medium line-clamp-1">Gojek</h1>
-                                                <p class="text-gray-400 text-sm">Malang, Indonesia</p>
+                                        <div class="flex flex-col gap-4">
+                                        <div class="flex justify-between">
+                                            <div class="flex gap-2">
+                                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Gojek.png" alt="Gojek">
+                                                <div>
+                                                    <h1 class="text-xl font-medium line-clamp-1">Gojek</h1>
+                                                    <p class="text-gray-400 text-sm">Malang, Indonesia</p>
+                                                </div>
+                                            </div>
+                                            <ion-icon name="bookmark-outline" class="text-3xl text-tertiary cursor-pointer"></ion-icon>
+                                        </div>
+                                        <div>
+                                            <h1 class="text-2xl font-bold line-clamp-1">Senior Mobile Developer (Kotlin & Swift)</h1>
+                                            <div class="flex gap-2">
+                                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
                                             </div>
                                         </div>
-                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                                    </div>
-                                    <div>
-                                        <h1 class="text-2xl font-bold line-clamp-1">Senior Mobile Developer (Kotlin & Swift)</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
                                         <div class="flex gap-2">
-                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
                                         </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                                    <div class="flex gap-2">
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">3 years <sup>+</sup></h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Kotlin</h4>
-                                    </div>
-                                    <div class="flex justify-between items-center mt-2">
-                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
-                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                            Apply Now
-                                        </button>
+                                        <div class="flex justify-between items-center mt-2">
+                                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 9 million/<span class="text-sm font-normal">month</span></h2>
+                                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                                Apply Now
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3 hidden lg:block">
-                                    <div class="flex justify-between">
-                                        <div class="flex gap-2">
-                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/PT Pemindo Mitra Sinergi.png" alt="Pemindo">
-                                            <div>
-                                                <h1 class="text-xl font-medium line-clamp-1">PT Pemindo Mitra Sinergi</h1>
-                                                <p class="text-gray-400 text-sm">Bandung, Indonesia</p>
+                                    <div class="flex flex-col gap-4">
+                                        <div class="flex justify-between">
+                                            <div class="flex gap-2">
+                                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/PT Pemindo Mitra Sinergi.png" alt="Pemindo">
+                                                <div>
+                                                    <h1 class="text-xl font-medium line-clamp-1">PT Pemindo Mitra Sinergi</h1>
+                                                    <p class="text-gray-400 text-sm">Bandung, Indonesia</p>
+                                                </div>
+                                            </div>
+                                            <ion-icon name="bookmark-outline" class="text-3xl text-tertiary cursor-pointer"></ion-icon>
+                                        </div>
+                                        <div>
+                                            <h1 class="text-2xl font-bold line-clamp-1">Sales Marketing</h1>
+                                            <div class="flex gap-2">
+                                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
                                             </div>
                                         </div>
-                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                                    </div>
-                                    <div>
-                                        <h1 class="text-2xl font-bold line-clamp-1">Sales Marketing</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
                                         <div class="flex gap-2">
-                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years <sup>+</sup></h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Diploma (D1 - D4)</h4>
                                         </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                                    <div class="flex gap-2">
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years <sup>+</sup></h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Diploma (D1 - D4)</h4>
-                                    </div>
-                                    <div class="flex justify-between items-center mt-2">
-                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 4 million/<span class="text-sm font-normal">month</span></h2>
-                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                            Apply Now
-                                        </button>
+                                        <div class="flex justify-between items-center mt-2">
+                                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 4 million/<span class="text-sm font-normal">month</span></h2>
+                                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                                Apply Now
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="bg-slate-100 rounded-xl shadow-md px-4 py-6 col-span-12 m-2 lg:col-span-3 hidden lg:block">
-                                    <div class="flex justify-between">
-                                        <div class="flex gap-2">
-                                            <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Pertamina.png" alt="Pertamina">
-                                            <div>
-                                                <h1 class="text-xl font-medium line-clamp-1">Pertamina</h1>
-                                                <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                    <div class="flex flex-col gap-4">
+                                        <div class="flex justify-between">
+                                            <div class="flex gap-2">
+                                                <img class="w-[50px] h-[50px] rounded-lg" src="public/assets/Logo/Pertamina.png" alt="Pertamina">
+                                                <div>
+                                                    <h1 class="text-xl font-medium line-clamp-1">Pertamina</h1>
+                                                    <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
+                                                </div>
+                                            </div>
+                                            <ion-icon name="bookmark-outline" class="text-3xl text-tertiary cursor-pointer"></ion-icon>
+                                        </div>
+                                        <div>
+                                            <h1 class="text-2xl font-bold line-clamp-1">Sales Marketing</h1>
+                                            <div class="flex gap-2">
+                                                <h2 class="text-gray-400 text-sm">Fulltime</h2>
+                                                <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
                                             </div>
                                         </div>
-                                        <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
-                                    </div>
-                                    <div>
-                                        <h1 class="text-2xl font-bold line-clamp-1">Sales Marketing</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
                                         <div class="flex gap-2">
-                                            <h2 class="text-gray-400 text-sm">Fulltime</h2>
-                                            <h2 class="text-gray-400 text-sm">Posted 7 days ago</h2>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years <sup>+</sup></h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
+                                            <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Diploma (D1 - D4)</h4>
                                         </div>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet consectetur. Etiam turpis ultricies molestie nulla lorem. Egestas habitant mollis orci at sed in justo.</p>
-                                    <div class="flex gap-2">
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">1 years <sup>+</sup></h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Soft skills</h4>
-                                        <h4 class="p-2 text-xs font-medium bg-slate-200 rounded-md line-clamp-1">Diploma (D1 - D4)</h4>
-                                    </div>
-                                    <div class="flex justify-between items-center mt-2">
-                                        <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 5 million/<span class="text-sm font-normal">month</span></h2>
-                                        <button class="bg-tertiary text-white rounded-md px-4 py-2">
-                                            Apply Now
-                                        </button>
+                                        <div class="flex justify-between items-center mt-2">
+                                            <h2 class="text-md font-semibold w-[137px] flex flex-wrap items-center tracking-wide">Rp 5 million/<span class="text-sm font-normal">month</span></h2>
+                                            <button class="bg-tertiary text-white rounded-md px-4 py-2">
+                                                Apply Now
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="bg-slate-100 rounded-xl shadow-md col-span-12 overflow-hidden m-2 lg:col-span-3">
@@ -653,7 +691,7 @@
                                                     <p class="text-gray-400 text-sm">Jakarta, Indonesia</p>
                                                 </div>
                                             </div>
-                                            <i class="fa-regular fa-bookmark cursor-pointer h-2" style="color: #99cb3c;"></i>
+                                            <ion-icon name="bookmark-outline" class="text-3xl text-tertiary cursor-pointer"></ion-icon>
                                         </div>
                                         <div>
                                             <h1 class="text-2xl font-bold line-clamp-1">Finance</h1>
@@ -678,7 +716,7 @@
                                 </div>
                                 <div class="relative col-span-12 lg:w-1/4 -translate-x-1/2 left-1/2 lg:right-1/2 mt-5">
                                     <button class="bg-tertiary text-white py-2 px-2 rounded-full w-full lg:right-0">View All Jobs</button>
-                                    <ion-icon name="arrow-forward-outline" class="ml-1 bg-white py-[10.5px] px-3 rounded-full absolute top-0 right-0 border-tertiary text-tertiary border-2"></ion-icon>
+                                    <ion-icon name="arrow-forward-outline" class="cursor-pointer ml-1 bg-white py-[10.5px] px-3 rounded-full absolute top-0 right-0 border-tertiary text-tertiary border-2"></ion-icon>
                                 </div>
                             </div>
                         </div>
@@ -701,7 +739,7 @@
                                 <div class="flex gap-4 flex-col px-5 py-3 md:flex-row md:w-3/4 md:px-2 md:translate-x-1/2 lg:translate-x-0">
                                     <div class="relative w-full md:w-3/4 lg:w-1/3">
                                         <button class="bg-tertiary text-white py-2 px-4 rounded-full w-full">Get Started</button>
-                                        <ion-icon name="arrow-forward-outline" class="ml-1 bg-white py-[10.5px] px-3 rounded-full absolute top-0 -right-1.5 border-tertiary text-tertiary border-2"></ion-icon>
+                                        <ion-icon name="arrow-forward-outline" class="cursor-pointer ml-1 bg-white py-[10.5px] px-3 rounded-full absolute top-0 -right-1.5 border-tertiary text-tertiary border-2"></ion-icon>
                                     </div>
                                     <button class="border-2 border-tertiary py-2 px-4 rounded-full w-full md:w-3/4 lg:w-1/3">Upload Poster</button>
                                 </div>
