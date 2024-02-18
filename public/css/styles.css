@@ -824,6 +824,10 @@ html{
   width: 25%;
 }
 
+.w-10 {
+  width: 2.5rem;
+}
+
 .w-11 {
   width: 2.75rem;
 }
@@ -1178,6 +1182,16 @@ html{
   padding-bottom: 10.5px;
 }
 
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .pb-10 {
   padding-bottom: 2.5rem;
 }
@@ -1407,6 +1421,18 @@ html{
     left: 33.333333%;
   }
 
+  .md\:top-10 {
+    top: 2.5rem;
+  }
+
+  .md\:top-8 {
+    top: 2rem;
+  }
+
+  .md\:top-6 {
+    top: 1.5rem;
+  }
+
   .md\:col-span-4 {
     grid-column: span 4 / span 4;
   }
@@ -1415,12 +1441,12 @@ html{
     grid-column: span 8 / span 8;
   }
 
-  .md\:mt-20 {
-    margin-top: 5rem;
-  }
-
   .md\:mt-0 {
     margin-top: 0px;
+  }
+
+  .md\:mt-20 {
+    margin-top: 5rem;
   }
 
   .md\:block {
@@ -1461,10 +1487,6 @@ html{
 
   .md\:w-\[725px\] {
     width: 725px;
-  }
-
-  .md\:flex-grow-0 {
-    flex-grow: 0;
   }
 
   .md\:grow-0 {
@@ -1552,6 +1574,18 @@ html{
     top: 2.75rem;
   }
 
+  .lg\:top-10 {
+    top: 2.5rem;
+  }
+
+  .lg\:top-9 {
+    top: 2.25rem;
+  }
+
+  .lg\:left-2\/3 {
+    left: 66.666667%;
+  }
+
   .lg\:order-2 {
     order: 2;
   }
@@ -1581,14 +1615,14 @@ html{
     margin-right: 1rem;
   }
 
-  .lg\:my-4 {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-
   .lg\:my-0 {
     margin-top: 0px;
     margin-bottom: 0px;
+  }
+
+  .lg\:my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   .lg\:mt-0 {
@@ -1629,6 +1663,22 @@ html{
 
   .lg\:w-\[310px\] {
     width: 310px;
+  }
+
+  .lg\:w-12 {
+    width: 3rem;
+  }
+
+  .lg\:w-44 {
+    width: 11rem;
+  }
+
+  .lg\:w-52 {
+    width: 13rem;
+  }
+
+  .lg\:w-48 {
+    width: 12rem;
   }
 
   .lg\:flex-grow {
